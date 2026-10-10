@@ -1,7 +1,6 @@
 # mattgrosso.com
 
 A one-page front door: who I am and a directory of the things I've built.
-Built with Claude (Claude Code).
 
 Hand-written HTML, CSS and one small script (`sort.js`), no build step. Edit `index.html` / `styles.css`
 and push to `master`; GitHub Pages serves it at https://mattgrosso.com.
