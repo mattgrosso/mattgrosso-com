@@ -1,33 +1,28 @@
 /* mattgrosso.com
    Mobile first: the base rules are the phone layout. The media queries at the
-   bottom only add room and columns as the screen grows. */
+   bottom only add room and columns as the screen grows.
+
+   The look: black type on white, and colour only in flat primary blocks. */
 
 :root {
-  --ink: #141414;
-  --paper: #fbf3e4;
-  --card: #fffdf8;
-  --muted: #55504a;
-  --blue: #2433ff;
-  --games: #ff5b2e;
-  --night: #ffc21a;
-  --everyday: #22b573;
-  --shadow: var(--ink);
+  --paper: #fafaf7;
+  --ink: #111111;
+  --muted: #5e5e5a;
+  --rule: #e2e2dc;
+  --red: #e1251b;
+  --yellow: #f7c600;
+  --blue: #1f45d6;
 
-  --gutter: 1rem;
-  --line: 2px;
-  --radius: 14px;
-  --lift: 5px;
-  --font: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --gutter: 1.25rem;
+  --font: "Archivo", ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink: #fbf3e4;
     --paper: #121212;
-    --card: #1c1c1c;
-    --muted: #b8b0a3;
-    --shadow: var(--blue);
+    --ink: #f2f2ee;
+    --muted: #a3a39d;
+    --rule: #2c2c2a;
   }
 }
 
@@ -42,6 +37,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font: 1rem/1.55 var(--font);
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;
 }
@@ -55,21 +51,24 @@ p {
 
 a {
   color: inherit;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
 }
 
 :focus-visible {
-  outline: 3px solid var(--night);
+  outline: 3px solid var(--blue);
   outline-offset: 3px;
 }
 
 .wrap {
-  max-width: 76rem;
+  max-width: 74rem;
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
 
 .skip,
-.sr-only {
+.sr-only,
+.sort legend {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -83,58 +82,59 @@ a {
   height: auto;
   clip-path: none;
   padding: 0.5rem 0.9rem;
-  background: var(--night);
-  color: #141414;
+  background: var(--ink);
+  color: var(--paper);
 }
 
-/* Hero */
+/* Header */
 
 .hero {
-  background: var(--blue);
-  color: #fbf3e4;
-  padding: 3.5rem 0 3rem;
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-.hero .wrap {
-  display: grid;
-  justify-items: start;
-  gap: 1rem;
+.swatches {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.swatches span {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--red);
+}
+
+.swatches span:nth-child(2) {
+  background: var(--yellow);
+}
+
+.swatches span:nth-child(3) {
+  background: var(--blue);
 }
 
 .hero h1 {
-  font-size: clamp(3.5rem, 19vw, 9.5rem);
+  font-size: clamp(2.75rem, 13vw, 5.5rem);
   font-weight: 800;
-  line-height: 0.86;
-  letter-spacing: -0.045em;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
 }
 
 .lede {
-  max-width: 22ch;
-  font-size: clamp(1.4rem, 6vw, 2.1rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  max-width: 26ch;
+  font-size: clamp(1.25rem, 5vw, 1.6rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 .hero p:not(.lede) {
-  max-width: 36ch;
-  opacity: 0.85;
+  color: var(--muted);
 }
 
-.button {
-  margin-top: 0.5rem;
-  padding: 0.6rem 1.1rem;
-  background: var(--night);
-  color: #141414;
-  border: var(--line) solid #141414;
-  border-radius: 999px;
-  box-shadow: 3px 3px 0 #141414;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.button:hover {
-  background: #fbf3e4;
+.hero a {
+  font-weight: 600;
 }
 
 /* Heading row and sort control */
@@ -142,46 +142,32 @@ a {
 .bar {
   display: flex;
   flex-wrap: wrap;
-  align-items: end;
+  align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 2.5rem 0 1.5rem;
+  gap: 0.75rem 1.5rem;
+  padding: 1.25rem 0 1.75rem;
+  border-top: 2px solid var(--ink);
 }
 
 .bar h2 {
-  font-size: clamp(1.8rem, 8vw, 2.8rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .sort {
   display: flex;
+  gap: 1.1rem;
   margin: 0;
   padding: 0;
-  border: var(--line) solid var(--ink);
-  border-radius: 999px;
-  overflow: hidden;
+  border: 0;
 }
 
 .sort[hidden] {
   display: none;
 }
 
-.sort legend {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-}
-
 .sort label {
   position: relative;
-}
-
-.sort label + label {
-  border-left: var(--line) solid var(--ink);
 }
 
 .sort input {
@@ -190,121 +176,129 @@ a {
 }
 
 .sort span {
-  display: block;
-  padding: 0.45rem 0.9rem;
-  font-size: 0.9rem;
-  font-weight: 700;
+  color: var(--muted);
   cursor: pointer;
 }
 
+.sort span:hover {
+  color: var(--ink);
+}
+
 .sort input:checked + span {
-  background: var(--ink);
-  color: var(--paper);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
 }
 
 .sort input:focus-visible + span {
-  outline: 3px solid var(--night);
-  outline-offset: -5px;
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
 }
 
 /* Cards */
 
 .grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 2.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .card {
-  --kind: var(--everyday);
+  --kind: var(--blue);
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  background: var(--card);
-  border: var(--line) solid var(--ink);
-  border-radius: var(--radius);
-  box-shadow: var(--lift) var(--lift) 0 var(--shadow);
-  transition: transform 0.15s, box-shadow 0.15s;
+  gap: 1rem;
 }
 
 .card[data-kind="game"] {
-  --kind: var(--games);
+  --kind: var(--red);
 }
 
 .card[data-kind="night"] {
-  --kind: var(--night);
+  --kind: var(--yellow);
 }
 
-/* The screenshot sits on a block of the card's colour, cut off at the bottom
-   like a phone or window rising out of it. */
+/* A flat block of the card's colour with the screenshot rising out of it. */
 .shot {
   position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--kind);
-  border-bottom: var(--line) solid var(--ink);
 }
 
 .shot img {
   position: absolute;
   display: block;
   height: auto;
-  border: var(--line) solid #141414;
-  background: #141414;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.15);
+  transition: translate 0.25s ease;
 }
 
 .shot--phone img {
   left: 50%;
-  top: 1.25rem;
-  width: 46%;
+  top: 1.5rem;
+  width: 44%;
   translate: -50% 0;
-  border-radius: 18px;
+  border-radius: 14px;
 }
 
 .shot--wide img {
-  left: 1.25rem;
-  top: 1.25rem;
-  width: calc(100% - 2.5rem);
-  border-radius: 10px;
+  left: 1.5rem;
+  top: 1.5rem;
+  width: calc(100% - 3rem);
+  border-radius: 6px;
 }
 
 .shot--none {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: end;
+  padding: 1.25rem;
 }
 
 .shot--none span {
-  font-size: clamp(2rem, 11vw, 3rem);
+  color: #fff;
+  font-size: clamp(1.75rem, 9vw, 2.5rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
-  color: #141414;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.card[data-kind="night"] .shot--none span {
+  color: #111;
 }
 
 .body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 0.4rem;
-  padding: 1rem 1.15rem 1.1rem;
+  gap: 0.35rem;
 }
 
 .kind {
-  justify-self: start;
-  align-self: flex-start;
-  padding: 0.1rem 0.55rem;
-  background: var(--kind);
-  color: #141414;
-  border: var(--line) solid var(--ink);
-  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kind::before {
+  content: "";
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--kind);
 }
 
 .card h3 {
-  font-size: 1.45rem;
+  font-size: 1.4rem;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -321,6 +315,10 @@ a {
   inset: 0;
 }
 
+.card:hover h3 a {
+  text-decoration: underline;
+}
+
 .desc {
   color: var(--muted);
 }
@@ -328,21 +326,27 @@ a {
 .stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 0.9rem;
+  gap: 0.15rem 1rem;
   margin-top: auto;
-  padding-top: 0.6rem;
-  font: 500 0.75rem/1.4 var(--mono);
+  padding-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.stats span:first-child {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .url {
   color: var(--muted);
-  font: 500 0.75rem/1.4 var(--mono);
+  font-size: 0.8rem;
   overflow-wrap: anywhere;
 }
 
 .card:has(a:focus-visible) {
-  outline: 3px solid var(--night);
-  outline-offset: 3px;
+  outline: 3px solid var(--blue);
+  outline-offset: 6px;
 }
 
 .card h3 a:focus-visible {
@@ -350,9 +354,12 @@ a {
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .card:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: calc(var(--lift) + 3px) calc(var(--lift) + 3px) 0 var(--shadow);
+  .card:hover .shot--phone img {
+    translate: -50% -0.5rem;
+  }
+
+  .card:hover .shot--wide img {
+    translate: 0 -0.5rem;
   }
 }
 
@@ -361,8 +368,10 @@ a {
 .foot {
   display: grid;
   gap: 0.3rem;
-  padding-top: 3rem;
+  margin-top: 4rem;
+  padding-top: 1.25rem;
   padding-bottom: 3rem;
+  border-top: 2px solid var(--ink);
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -375,12 +384,13 @@ a {
   }
 
   .hero {
-    padding: 5rem 0 4.5rem;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
   }
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.75rem;
+    gap: 3rem 2rem;
   }
 }
 

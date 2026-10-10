@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Matt Grosso</title>
   <meta name="description" content="Matt Grosso builds web apps, mostly for his family and friends. Here are the ones anyone can use.">
-  <meta name="theme-color" content="#2433ff">
+  <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Matt Grosso">
   <meta property="og:description" content="Web apps I've built, mostly for my family and friends.">
   <meta property="og:url" content="https://mattgrosso.com/">
@@ -13,27 +14,26 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..800&display=swap">
   <link rel="stylesheet" href="styles.css">
   <script src="sort.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#work">Skip to the apps</a>
 
-  <header class="hero">
-    <div class="wrap">
-      <h1>Matt<br>Grosso</h1>
-      <p class="lede">I build web apps, mostly for my family and friends.</p>
-      <p>I live in Washington, DC. These are the ones anyone can use.</p>
-      <a class="button" href="https://github.com/mattgrosso">GitHub</a>
-    </div>
+  <header class="hero wrap">
+    <div class="swatches" aria-hidden="true"><span></span><span></span><span></span></div>
+    <h1>Matt Grosso</h1>
+    <p class="lede">I build web apps, mostly for my family and friends.</p>
+    <p>I live in Washington, DC. These are the ones anyone can use.</p>
+    <p><a href="https://github.com/mattgrosso">GitHub</a></p>
   </header>
 
   <main id="work" class="wrap">
     <div class="bar">
       <h2>Things I've made</h2>
       <fieldset class="sort" hidden>
-        <legend>Sort by</legend>
+        <legend>Sort</legend>
         <label><input type="radio" name="sort" value="work" checked><span>Most work</span></label>
         <label><input type="radio" name="sort" value="recent"><span>Latest</span></label>
         <label><input type="radio" name="sort" value="age"><span>Oldest</span></label>
@@ -175,9 +175,11 @@
     </ul>
   </main>
 
-  <footer class="wrap foot">
-    <p>I wrote this page by hand in HTML and CSS. The numbers on each card come from git.</p>
-    <p>Brock gave me this domain in 2019. <a href="christmas-2019/">His card is still up.</a></p>
+  <footer class="wrap">
+    <div class="foot">
+      <p>I wrote this page by hand in HTML and CSS. The numbers on each card come from git.</p>
+      <p>Brock gave me this domain in 2019. <a href="christmas-2019/">His card is still up.</a></p>
+    </div>
   </footer>
 </body>
 </html>
