@@ -21,8 +21,12 @@ function stats(repos) {
   let first = '9999-99-99';
   let last = '0000-00-00';
   for (const repo of repos) {
-    commits += Number(git(repo, 'rev-list', '--count', 'HEAD'));
     const dates = git(repo, 'log', '--format=%cs').split('\n');
+    // A lone first commit followed by a year of nothing is an empty folder made
+    // long before the real work (3dblock's 2022 "init"); don't date the app by it.
+    const [oldest, next] = dates.slice(-2).reverse();
+    if (next && Date.parse(next) - Date.parse(oldest) > 365 * 864e5) dates.pop();
+    commits += dates.length;
     if (dates.at(-1) < first) first = dates.at(-1);
     if (dates[0] > last) last = dates[0];
   }
