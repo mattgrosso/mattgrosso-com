@@ -4,116 +4,180 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Matt Grosso</title>
-  <meta name="description" content="Matt Grosso makes small, carefully built web apps — games, tools for game night, and everyday utilities.">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Matt Grosso builds web apps, mostly for his family and friends. Here are the ones anyone can use.">
+  <meta name="theme-color" content="#2433ff">
   <meta property="og:title" content="Matt Grosso">
-  <meta property="og:description" content="Small, carefully built web apps — games, tools for game night, and everyday utilities.">
+  <meta property="og:description" content="Web apps I've built, mostly for my family and friends.">
   <meta property="og:url" content="https://mattgrosso.com/">
+  <meta property="og:image" content="https://mattgrosso.com/img/commonwealth.webp">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@500&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <script src="sort.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#work">Skip to the work</a>
+  <a class="skip" href="#work">Skip to the apps</a>
 
-  <header class="intro">
-    <h1>Matt Grosso</h1>
-    <p class="lede">I make small, carefully built web apps — for my family, my friends, and the games we play.</p>
-    <p>Washington, DC. Most of what I build is used by a handful of people every day, and all of it is listed below.</p>
-    <nav class="links" aria-label="Elsewhere">
-      <a href="https://github.com/mattgrosso">GitHub</a>
-    </nav>
+  <header class="hero">
+    <div class="wrap">
+      <h1>Matt<br>Grosso</h1>
+      <p class="lede">I build web apps, mostly for my family and friends.</p>
+      <p>I live in Washington, DC. These are the ones anyone can use.</p>
+      <a class="button" href="https://github.com/mattgrosso">GitHub</a>
+    </div>
   </header>
 
-  <main id="work">
-    <section aria-labelledby="games">
-      <h2 id="games">Games</h2>
-      <ul class="grid">
-        <li class="card">
-          <h3><a href="https://aroundtableround.com">Around Table Round</a></h3>
-          <p>A home for the board games my friends and I play: online rooms, computer opponents, and games that can run over days.</p>
-          <span class="url">aroundtableround.com</span>
-        </li>
-        <li class="card">
-          <h3><a href="https://commonwealth.aroundtableround.com">Commonwealth</a></h3>
-          <p>A cooperative civilization game of my own design, for the browser and the big screen.</p>
-          <span class="url">commonwealth.aroundtableround.com</span>
-        </li>
-        <li class="card">
-          <h3><a href="https://crossword.aroundtableround.com">Crossword</a></h3>
-          <p>A fresh themed crossword every day. Solve it alone, race your friends, or fill it in together.</p>
-          <span class="url">crossword.aroundtableround.com</span>
-        </li>
-        <li class="card">
-          <h3><a href="https://couchblocks.aroundtableround.com">Couch Blocks</a></h3>
-          <p>A falling-block game for up to four people sharing one well.</p>
-          <span class="url">couchblocks.aroundtableround.com</span>
-        </li>
-        <li class="card">
-          <h3><a href="https://rumbleseatgames.com">Rumble Seat Games</a></h3>
-          <p>Games for the car. One phone in a passenger's hands, everyone else plays by voice, and the driver just drives.</p>
-          <span class="url">rumbleseatgames.com</span>
-        </li>
-      </ul>
-    </section>
+  <main id="work" class="wrap">
+    <div class="bar">
+      <h2>Things I've made</h2>
+      <fieldset class="sort" hidden>
+        <legend>Sort by</legend>
+        <label><input type="radio" name="sort" value="work" checked><span>Most work</span></label>
+        <label><input type="radio" name="sort" value="recent"><span>Latest</span></label>
+        <label><input type="radio" name="sort" value="age"><span>Oldest</span></label>
+      </fieldset>
+    </div>
+    <p class="sr-only" aria-live="polite" id="sort-status"></p>
 
-    <section aria-labelledby="game-night">
-      <h2 id="game-night">For game night</h2>
-      <ul class="grid">
-        <li class="card">
-          <h3><a href="https://fulltablegames.com">Full Table</a></h3>
-          <p>Schedule board game nights, let friends claim a seat, and collect requests for games people want to try.</p>
-          <span class="url">fulltablegames.com</span>
-        </li>
-        <li class="card">
-          <h3><a href="https://scan.fulltablegames.com">Shelfie</a></h3>
-          <p>Photograph your game shelf and find out what isn't in your BoardGameGeek collection yet.</p>
-          <span class="url">scan.fulltablegames.com</span>
-        </li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="everyday">
-      <h2 id="everyday">Everyday tools</h2>
-      <ul class="grid">
-        <li class="card">
+    <ul class="grid">
+      <li class="card" data-kind="everyday" data-repos="cinemaroll" data-commits="1424" data-first="2023-01-19" data-last="2026-10-09">
+        <div class="shot shot--phone"><img src="img/cinema-roll.webp" alt="Cinema Roll's home screen: a grid of movie posters" width="480" height="1039" loading="lazy"></div>
+        <div class="body">
+          <p class="kind">Everyday</p>
           <h3><a href="https://www.cinemaroll.org">Cinema Roll</a></h3>
-          <p>Rate movies on the things you care about, keep a record of what you've watched, and see your own patterns.</p>
+          <p class="desc">My movie diary. You rate each film on the things you care about, and over time it shows you your own taste.</p>
+          <p class="stats"><span>1,424 commits</span><span>Started Jan 2023</span><span>Updated Oct 9, 2026</span></p>
           <span class="url">cinemaroll.org</span>
-        </li>
-        <li class="card">
+        </div>
+      </li>
+      <li class="card" data-kind="game" data-repos="around-table-round thunder space-base no-thanks cant-stop cartographers camel-up codenames incan-gold for-sale 3dblock telestrations" data-commits="1141" data-first="2022-07-06" data-last="2026-10-10">
+        <div class="shot shot--wide"><img src="img/around-table-round.webp" alt="The Around Table Round menu listing fourteen games" width="800" height="500" loading="lazy"></div>
+        <div class="body">
+          <p class="kind">Games</p>
+          <h3><a href="https://aroundtableround.com">Around Table Round</a></h3>
+          <p class="desc">Board games my friends and I like, rebuilt so we can play them online. Fourteen so far.</p>
+          <p class="stats"><span>1,141 commits</span><span>Started Jul 2022</span><span>Updated Oct 10, 2026</span></p>
+          <span class="url">aroundtableround.com</span>
+        </div>
+      </li>
+      <li class="card" data-kind="game" data-repos="commonwealth" data-commits="222" data-first="2026-09-01" data-last="2026-10-10">
+        <div class="shot shot--wide"><img src="img/commonwealth.webp" alt="A Commonwealth game in progress: a walled city on a green hex island" width="800" height="500" loading="lazy"></div>
+        <div class="body">
+          <p class="kind">Games</p>
+          <h3><a href="https://commonwealth.aroundtableround.com">Commonwealth</a></h3>
+          <p class="desc">A co-op civilization game I designed. The map goes on the TV and everyone plays from their phone.</p>
+          <p class="stats"><span>222 commits</span><span>Started Sep 2026</span><span>Updated Oct 10, 2026</span></p>
+          <span class="url">commonwealth.aroundtableround.com</span>
+        </div>
+      </li>
+      <li class="card" data-kind="everyday" data-repos="meal-hat" data-commits="185" data-first="2023-06-15" data-last="2026-10-08">
+        <div class="shot shot--none" aria-hidden="true"><span>Meal Hat</span></div>
+        <div class="body">
+          <p class="kind">Everyday</p>
           <h3><a href="https://mealhat.com">Meal Hat</a></h3>
-          <p>Meal planning and the grocery list that comes out of it, built for a household.</p>
+          <p class="desc">How our house plans the week's dinners and the grocery list that goes with them.</p>
+          <p class="stats"><span>185 commits</span><span>Started Jun 2023</span><span>Updated Oct 8, 2026</span></p>
           <span class="url">mealhat.com</span>
-        </li>
-        <li class="card">
+        </div>
+      </li>
+      <li class="card" data-kind="everyday" data-repos="every-street" data-commits="67" data-first="2026-08-21" data-last="2026-10-08">
+        <div class="shot shot--none" aria-hidden="true"><span>Every Street</span></div>
+        <div class="body">
+          <p class="kind">Everyday</p>
           <h3><a href="https://everystreet.app">Every Street</a></h3>
-          <p>Walk every street around your house. Each day it plans a loop from your front door through streets you haven't walked.</p>
+          <p class="desc">Plans a walk from your front door each day, through streets you haven't walked yet.</p>
+          <p class="stats"><span>67 commits</span><span>Started Aug 2026</span><span>Updated Oct 8, 2026</span></p>
           <span class="url">everystreet.app</span>
-        </li>
-        <li class="card">
-          <h3><a href="https://wevemet.org">We’ve Met</a></h3>
-          <p>Tell your phone who you just met. Weeks later, ask it "who's the woman with the whippet?" and get her name back.</p>
-          <span class="url">wevemet.org</span>
-        </li>
-        <li class="card">
-          <h3><a href="https://letspeaceout.com">Peace Out</a></h3>
-          <p>A private way out of a first date. Nothing happens unless you both want to leave.</p>
-          <span class="url">letspeaceout.com</span>
-        </li>
-        <li class="card">
+        </div>
+      </li>
+      <li class="card" data-kind="night" data-repos="full-table" data-commits="59" data-first="2026-07-20" data-last="2026-10-08">
+        <div class="shot shot--phone"><img src="img/full-table.webp" alt="Full Table's home screen" width="480" height="1039" loading="lazy"></div>
+        <div class="body">
+          <p class="kind">Game night</p>
+          <h3><a href="https://fulltablegames.com">Full Table</a></h3>
+          <p class="desc">Post a game night and send the link. Friends claim the open seats.</p>
+          <p class="stats"><span>59 commits</span><span>Started Jul 2026</span><span>Updated Oct 8, 2026</span></p>
+          <span class="url">fulltablegames.com</span>
+        </div>
+      </li>
+      <li class="card" data-kind="game" data-repos="rumble-seat-games" data-commits="39" data-first="2026-08-31" data-last="2026-10-10">
+        <div class="shot shot--phone"><img src="img/rumble-seat-games.webp" alt="Rumble Seat Games' list of car games" width="480" height="1039" loading="lazy"></div>
+        <div class="body">
+          <p class="kind">Games</p>
+          <h3><a href="https://rumbleseatgames.com">Rumble Seat Games</a></h3>
+          <p class="desc">Games for long car rides. A passenger holds the phone and the driver just drives.</p>
+          <p class="stats"><span>39 commits</span><span>Started Aug 2026</span><span>Updated Oct 10, 2026</span></p>
+          <span class="url">rumbleseatgames.com</span>
+        </div>
+      </li>
+      <li class="card" data-kind="game" data-repos="couch-blocks" data-commits="19" data-first="2026-10-01" data-last="2026-10-09">
+        <div class="shot shot--wide"><img src="img/couch-blocks.webp" alt="The Couch Blocks lobby with four player seats" width="800" height="500" loading="lazy"></div>
+        <div class="body">
+          <p class="kind">Games</p>
+          <h3><a href="https://couchblocks.aroundtableround.com">Couch Blocks</a></h3>
+          <p class="desc">Falling blocks for up to four people in one shared well. You can shove each other's pieces.</p>
+          <p class="stats"><span>19 commits</span><span>Started Oct 2026</span><span>Updated Oct 9, 2026</span></p>
+          <span class="url">couchblocks.aroundtableround.com</span>
+        </div>
+      </li>
+      <li class="card" data-kind="night" data-repos="shelfie" data-commits="19" data-first="2026-08-23" data-last="2026-09-21">
+        <div class="shot shot--none" aria-hidden="true"><span>Shelfie</span></div>
+        <div class="body">
+          <p class="kind">Game night</p>
+          <h3><a href="https://scan.fulltablegames.com">Shelfie</a></h3>
+          <p class="desc">Take a photo of your game shelf and it tells you which games are missing from your BoardGameGeek collection.</p>
+          <p class="stats"><span>19 commits</span><span>Started Aug 2026</span><span>Updated Sep 21, 2026</span></p>
+          <span class="url">scan.fulltablegames.com</span>
+        </div>
+      </li>
+      <li class="card" data-kind="game" data-repos="crossword" data-commits="17" data-first="2026-10-09" data-last="2026-10-10">
+        <div class="shot shot--phone"><img src="img/crossword.webp" alt="A crossword grid on a phone" width="480" height="1039" loading="lazy"></div>
+        <div class="body">
+          <p class="kind">Games</p>
+          <h3><a href="https://crossword.aroundtableround.com">Crossword</a></h3>
+          <p class="desc">A new themed crossword every day. You can solve it with friends, each on your own phone.</p>
+          <p class="stats"><span>17 commits</span><span>Started Oct 2026</span><span>Updated Oct 10, 2026</span></p>
+          <span class="url">crossword.aroundtableround.com</span>
+        </div>
+      </li>
+      <li class="card" data-kind="everyday" data-repos="tricorder" data-commits="12" data-first="2026-09-30" data-last="2026-10-01">
+        <div class="shot shot--phone"><img src="img/icorder.webp" alt="iCorder showing dozens of live sensor readouts" width="480" height="1040" loading="lazy"></div>
+        <div class="body">
+          <p class="kind">Everyday</p>
           <h3><a href="https://icorder.aroundtableround.com">iCorder</a></h3>
-          <p>Every sensor in your iPhone, on one screen. A native SwiftUI app.</p>
+          <p class="desc">Every sensor in an iPhone, live, on one screen. My first native app, written in SwiftUI.</p>
+          <p class="stats"><span>12 commits</span><span>Started Sep 2026</span><span>Updated Oct 1, 2026</span></p>
           <span class="url">icorder.aroundtableround.com</span>
-        </li>
-      </ul>
-    </section>
+        </div>
+      </li>
+      <li class="card" data-kind="everyday" data-repos="wevemet" data-commits="9" data-first="2026-09-24" data-last="2026-10-08">
+        <div class="shot shot--phone"><img src="img/wevemet.webp" alt="We've Met's start screen" width="480" height="1039" loading="lazy"></div>
+        <div class="body">
+          <p class="kind">Everyday</p>
+          <h3><a href="https://wevemet.org">We’ve Met</a></h3>
+          <p class="desc">When you meet someone, tell your phone their name. Next time you see them and blank, ask it.</p>
+          <p class="stats"><span>9 commits</span><span>Started Sep 2026</span><span>Updated Oct 8, 2026</span></p>
+          <span class="url">wevemet.org</span>
+        </div>
+      </li>
+      <li class="card" data-kind="everyday" data-repos="ejector-seat" data-commits="4" data-first="2026-10-07" data-last="2026-10-08">
+        <div class="shot shot--phone"><img src="img/peace-out.webp" alt="Peace Out's start screen" width="480" height="1039" loading="lazy"></div>
+        <div class="body">
+          <p class="kind">Everyday</p>
+          <h3><a href="https://letspeaceout.com">Peace Out</a></h3>
+          <p class="desc">For first dates. If you both want to leave, you both find out. If only one of you does, nobody ever knows.</p>
+          <p class="stats"><span>4 commits</span><span>Started Oct 2026</span><span>Updated Oct 8, 2026</span></p>
+          <span class="url">letspeaceout.com</span>
+        </div>
+      </li>
+    </ul>
   </main>
 
-  <footer class="foot">
-    <p>Hand-written HTML and CSS: no framework, no build step, no tracking.</p>
-    <p>This domain was a gift from Brock. <a href="christmas-2019/">Here's his card.</a></p>
+  <footer class="wrap foot">
+    <p>I wrote this page by hand in HTML and CSS. The numbers on each card come from git.</p>
+    <p>Brock gave me this domain in 2019. <a href="christmas-2019/">His card is still up.</a></p>
   </footer>
 </body>
 </html>

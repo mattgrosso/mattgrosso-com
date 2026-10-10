@@ -1,0 +1,7 @@
+{
+  "name": "mattgrosso-com",
+  "private": true,
+  "scripts": {
+    "stats": "node scripts/stats.mjs"
+  }
+}
