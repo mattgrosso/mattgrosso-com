@@ -2,6 +2,7 @@
   "name": "mattgrosso-com",
   "private": true,
   "scripts": {
-    "stats": "node scripts/stats.mjs"
+    "stats": "node scripts/stats.mjs",
+    "deploy": "aws s3 sync . s3://mattgrosso-com --delete --exclude \".*\" --exclude \".git/*\" --exclude \"CNAME\" --exclude \"README.md\" --exclude \"package.json\" --exclude \"scripts/*\" --exclude \"node_modules/*\" --profile personal-deploy && aws cloudfront create-invalidation --distribution-id E3ETNBYOFAD0IZ --paths \"/*\" --profile personal-deploy"
   }
 }
